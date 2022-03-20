@@ -18,7 +18,7 @@ client.on('connect', () => {
   });
 
   jema.on('change', lock => {
-    client.publish(`${topicBase}/get`, lock ? 'LOCK' : 'UNLOCK', { qos: 1 });
+    client.publish(`${topicBase}/get`, lock ? 'LOCK' : 'UNLOCK', { qos: 1, retain: true });
   });
 
   logger.info('- MQTT Start -');

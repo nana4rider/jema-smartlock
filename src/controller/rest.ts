@@ -41,8 +41,8 @@ app.listen(config.get('server.port'), () => {
 passport.use(new HeaderAPIKeyStrategy(
   { header: 'Authorization', prefix: 'Api-Key ' }, false,
   (inputkey, done) => {
-    if (apikey && inputkey === apikey) {
-      done(new Error());
+    if (apikey && inputkey !== apikey) {
+      done(createHttpError(401));
     } else {
       done(null, true);
     }

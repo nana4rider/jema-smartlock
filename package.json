@@ -1,6 +1,6 @@
 {
   "name": "jema-smartlock",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "app.js",
   "dependencies": {
     "@types/config": "^0.0.39",

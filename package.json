@@ -1,0 +1,48 @@
+{
+  "name": "jema-smartlock",
+  "version": "0.1.0",
+  "main": "app.js",
+  "dependencies": {
+    "@types/config": "^0.0.39",
+    "@types/express": "^4.17.13",
+    "@types/http-errors": "^1.8.2",
+    "@types/luxon": "^2.0.2",
+    "@types/mqtt": "^2.5.0",
+    "@types/passport": "^1.0.7",
+    "@types/passport-strategy": "^0.2.35",
+    "@types/ws": "^7.4.7",
+    "axios": "^0.21.1",
+    "config": "^3.3.6",
+    "dotenv": "^10.0.0",
+    "eris": "^0.16.1",
+    "express": "^4.17.1",
+    "express-promise-router": "^4.1.1",
+    "fliclib-js": "git+https://github.com/nana4rider/fliclib-js.git",
+    "http-errors": "^2.0.0",
+    "jem1427-gpio-ts": "git+https://github.com/nana4rider/jem1427-gpio-ts.git",
+    "log4js": "^6.3.0",
+    "luxon": "^2.0.2",
+    "mqtt": "^4.3.7",
+    "passport": "^0.5.2",
+    "passport-headerapikey": "^1.2.2",
+    "ws": "^8.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.10",
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
+    "eslint": "^7.32.0",
+    "typescript": "^4.1.5"
+  },
+  "scripts": {
+    "start": "npm run build && npm run serve",
+    "build": "npx tsc",
+    "serve": "node -r dotenv/config dst/app.js"
+  },
+  "author": "nana4rider",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nana4rider/jema-smartlock.git"
+  }
+}

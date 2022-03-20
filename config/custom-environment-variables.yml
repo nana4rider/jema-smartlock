@@ -1,0 +1,21 @@
+env: NODE_ENV
+server:
+  port: PORT
+door:
+  id: DOOR_ID
+  name: DOOR_NAME
+gpio:
+  channel:
+    __name: GPIO_CHANNEL
+    __format: json
+discord:
+  channelId: DISCORD_CHANNEL
+  unlockNotificationMinute: DISCORD_UNLOCK_NOTIFICATION_MINUTE
+  token: DISCORD_TOKEN
+rest:
+  apikey: REST_API_KEY
+mqtt:
+  broker: MQTT_BROKER
+flic:
+  host: FLIC_HOST
+  macAddress: FLIC_MAC_ADDRESS

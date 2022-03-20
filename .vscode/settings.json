@@ -1,0 +1,34 @@
+{
+  "files.exclude": {
+    "dst/**/*": true,
+    "**/node_modules/**/*": true,
+    "**/Temp/**/*": true,
+    "**/Downloads/**/*": true
+  },
+  "files.autoGuessEncoding": true,
+  "js/ts.implicitProjectConfig.experimentalDecorators": true,
+  "typescript.validate.enable": true,
+  "eslint.debug": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "eslint.validate": [
+    "typescript"
+  ],
+  "logViewer.watch": [
+    {
+      "title": "system.log",
+      "pattern": ".data/log/system.log"
+    },
+    {
+      "title": "error.log",
+      "pattern": ".data/log/error.log"
+    },
+    {
+      "title": "access.log",
+      "pattern": ".data/log/access.log"
+    }
+  ],
+  "todo.embedded.exclude": ["./dst/**/*", "node_modules/**/*", ".git/**/*"]
+}

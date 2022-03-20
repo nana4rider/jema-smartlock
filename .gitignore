@@ -1,0 +1,6 @@
+node_modules
+.env
+.data/*
+dst/*
+!.gitkeep
+pm2.config.js

@@ -7,7 +7,6 @@
     "@types/express": "^4.17.13",
     "@types/http-errors": "^1.8.2",
     "@types/luxon": "^2.0.2",
-    "@types/mqtt": "^2.5.0",
     "@types/passport": "^1.0.7",
     "@types/passport-strategy": "^0.2.35",
     "@types/ws": "^7.4.7",

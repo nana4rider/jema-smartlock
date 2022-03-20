@@ -11,7 +11,7 @@ const doorId = config.get('door.id');
 const topicBase = `smartlock/${doorId}`;
 
 client.on('connect', () => {
-  client.subscribe(`${topicBase}/set`, { qos: 2 }, err => {
+  client.subscribe(`${topicBase}/post`, { qos: 2 }, err => {
     if (err) {
       logger.error(err);
     }
@@ -25,7 +25,7 @@ client.on('connect', () => {
 });
 
 client.on('message', async (topic, message) => {
-  if (topic !== `${topicBase}/set`) return;
+  if (topic !== `${topicBase}/post`) return;
 
   const strRequestState = message.toString();
 

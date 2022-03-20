@@ -40,7 +40,7 @@ LOCK or UNLOCK
 
 ### ドアの状態を設定します
 ```
-TOPIC: smartlock/{DOOR_ID}/set
+TOPIC: smartlock/{DOOR_ID}/post
 ```
 message
 ```

@@ -2,6 +2,7 @@ import config from 'config';
 import * as log4js from 'log4js';
 import * as mqtt from 'mqtt';
 import Context from '../Context';
+import { convertJemaState, convertLockState } from '../util';
 
 const { jema } = Context;
 
@@ -18,7 +19,7 @@ client.on('connect', () => {
   });
 
   jema.on('change', lock => {
-    client.publish(`${topicBase}/get`, lock ? 'LOCK' : 'UNLOCK', { qos: 1, retain: true });
+    client.publish(`${topicBase}/get`, convertLockState(lock), { qos: 1, retain: true });
   });
 
   logger.info('- MQTT Start -');
@@ -27,18 +28,9 @@ client.on('connect', () => {
 client.on('message', async (topic, message) => {
   if (topic !== `${topicBase}/set`) return;
 
-  const strRequestState = message.toString();
-
-  let requestState: boolean;
-  if (strRequestState === 'LOCK') {
-    requestState = true;
-  } else if (strRequestState === 'UNLOCK') {
-    requestState = false;
-  } else {
-    return;
-  }
-
+  const requestState = convertJemaState(message.toString());
   const currentState = await jema.getMonitor();
+
   if (requestState !== currentState) {
     await jema.sendControl();
   }

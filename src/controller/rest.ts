@@ -6,6 +6,7 @@ import * as log4js from 'log4js';
 import passport from 'passport';
 import { HeaderAPIKeyStrategy } from 'passport-headerapikey';
 import Context from '../Context';
+import { convertJemaState, convertLockState } from '../util';
 
 const { jema } = Context;
 
@@ -49,21 +50,19 @@ passport.use(new HeaderAPIKeyStrategy(
   }
 ));
 
-rootRouter.get('/', passport.authenticate('headerapikey', { session: false }), async (req, res) => {
+rootRouter.use('/', passport.authenticate('headerapikey', { session: false }));
+
+rootRouter.get('/', async (req, res) => {
   const currentState = await jema.getMonitor();
 
-  res.json({ state: currentState ? 'LOCK' : 'UNLOCK' });
+  res.json({ state: convertLockState(currentState) });
 });
 
-rootRouter.post('/', passport.authenticate('headerapikey', { session: false }), async (req, res) => {
-  const strRequestState = req.body.state;
-
-  let requestState: boolean;
-  if (strRequestState === 'LOCK') {
-    requestState = true;
-  } else if (strRequestState === 'UNLOCK') {
-    requestState = false;
-  } else {
+rootRouter.post('/', async (req, res) => {
+  let requestState;
+  try {
+    requestState = convertJemaState(req.body.state);
+  } catch (e) {
     throw createHttpError(400);
   }
 

@@ -73,5 +73,13 @@ rootRouter.post('/', async (req, res) => {
   }
 
   await jema.sendControl();
-  jema.once('change', () => res.send());
+
+  const timer = setTimeout(() => {
+    throw createHttpError(503);
+  }, 3000);
+
+  jema.once('change', () => {
+    clearTimeout(timer);
+    res.send();
+  });
 });

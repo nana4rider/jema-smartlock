@@ -11,7 +11,7 @@ JEM-A Smart Lock
 * [Flic](https://flic.io/)による操作
 
 ## RESTful API
-### ドアの状態を取得します
+### 電子鍵の状態を取得します
 ```http
 GET /
 ```
@@ -19,7 +19,7 @@ request
 ```json
 {"state": "LOCK or UNLOCK"}
 ```
-### ドアの状態を設定します
+### 電子鍵の状態を設定します
 ```http
 POST /
 ```
@@ -29,18 +29,18 @@ response
 ```
 
 ## MQTT
-### ドアの状態を取得します
+### 電子鍵の状態更新通知を受け取ります
 ```
-TOPIC: smartlock/{DOOR_ID}/get
+SUBSCRIBE smartlock/{DOOR_ID}/get
 ```
 message
 ```
 LOCK or UNLOCK
 ```
 
-### ドアの状態を設定します
+### 電子鍵の状態を設定します
 ```
-TOPIC: smartlock/{DOOR_ID}/set
+PUBLISH smartlock/{DOOR_ID}/set
 ```
 message
 ```

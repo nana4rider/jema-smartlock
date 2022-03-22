@@ -21,7 +21,7 @@ request
 ```
 ### 電子鍵の状態を設定します
 ```http
-POST /
+PUT /
 ```
 response
 ```json

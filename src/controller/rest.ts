@@ -58,7 +58,7 @@ rootRouter.get('/', async (req, res) => {
   res.json({ state: convertLockState(currentState) });
 });
 
-rootRouter.post('/', async (req, res) => {
+rootRouter.put('/', async (req, res) => {
   let requestState;
   try {
     requestState = convertJemaState(req.body.state);

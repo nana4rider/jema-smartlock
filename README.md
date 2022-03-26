@@ -10,6 +10,8 @@ JEM-A Smart Lock
 * [Discord](https://discord.com/)への解錠通知
 * [Flic](https://flic.io/)による操作
 
+Raspberry PIとJEM-A端子を接続するための回路は、[nana4rider/jem1427-gpio-ts](https://github.com/nana4rider/jem1427-gpio-ts)に記載しています。
+
 ## RESTful API
 ### 電子鍵の状態を取得します
 ```http

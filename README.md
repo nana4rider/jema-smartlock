@@ -17,7 +17,7 @@ Raspberry PIとJEM-A端子を接続するための回路は、[nana4rider/jem142
 ```http
 GET /
 ```
-request
+response
 ```json
 {"state": "LOCK or UNLOCK"}
 ```
@@ -25,7 +25,7 @@ request
 ```http
 PUT /
 ```
-response
+request
 ```json
 {"state": "LOCK or UNLOCK"}
 ```

@@ -7,7 +7,8 @@ import { convertJemaState, convertLockState } from '../util';
 const { jema } = Context;
 
 const logger = log4js.getLogger();
-const client = mqtt.connect(config.get('mqtt.broker'));
+const client = mqtt.connect(config.get('mqtt.broker'),
+  config.has('mqtt.options') ? config.get('mqtt.options') : undefined);
 const doorId = config.get('door.id');
 const topicBase = `smartlock/${doorId}`;
 

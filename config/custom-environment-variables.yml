@@ -16,6 +16,9 @@ rest:
   apikey: REST_API_KEY
 mqtt:
   broker: MQTT_BROKER
+  options:
+    __name: MQTT_OPTIONS
+    __format: json
 flic:
   host: FLIC_HOST
   macAddress: FLIC_MAC_ADDRESS
